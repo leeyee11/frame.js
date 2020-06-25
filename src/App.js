@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { Box } from './layout/Flex';
-import Menu from './widget/Menu';
-import SidePanel from './widget/SidePanel';
-import ViewPortal from './widget/ViewPortal';
+import Menu from './component/Menu';
+import SidePanel from './component/SidePanel';
+import ViewPortal from './component/ViewPortal';
 import './App.css';
-
 
 function App() {
 
@@ -20,5 +19,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

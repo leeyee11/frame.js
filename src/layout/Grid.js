@@ -2,27 +2,48 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Elm from './Base/Elm';
 
-const Col = ({
+const Grid = ({
+  cols,
+  rows,
+  gap, 
+  style,
+  children,
+  ...restProps
+}) => (
+  <Elm
+    className={
+      `grid \
+      ${cols ? `grid-cols-${cols}` : ''}\
+      ${rows ? `grid-rows-${cols}` : ''}\
+      ${gap ? `gap-${gap}` : ''}`
+    }
+    style={style}
+    {...restProps}
+  >
+    {children}
+  </Elm>
+)
+
+export const Col = ({
   className = '',
-  span, 
+  span,
+  xs, 
   sm, 
   md, 
   lg, 
   xl, 
-  gap, 
   style,
   children,
   ...restProps
 }) => (
     <Elm
       className={
-        `grid 
-        ${span ? `grid-cols-${span}` : ''}\
-        ${sm ? `sm:grid-cols-${sm}` : ''}\ 
-        ${md ? `md:grid-cols-${md}` : ''}\ 
-        ${lg ? `lg:grid-cols-${lg}` : ''}\ 
-        ${xl ? `xl:grid-cols-${xl}` : ''}\
-        ${gap ? `gap-${gap}` : ''}\
+        ` ${span ? `col-span-${span}` : ''}\
+        ${xs ? `xs:col-span-${xs}` : ''}\ 
+        ${sm ? `sm:col-span-${sm}` : ''}\ 
+        ${md ? `md:col-span-${md}` : ''}\ 
+        ${lg ? `lg:col-span-${lg}` : ''}\ 
+        ${xl ? `xl:col-span-${xl}` : ''}\
         ${className}`
       }
       style={style}
@@ -43,4 +64,4 @@ Col.propTypes = {
   children: PropTypes.any
 }
 
-export const Grid = { Col };
+export default Grid;

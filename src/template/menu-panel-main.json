@@ -1,0 +1,49 @@
+{
+    "id": "root",
+    "type": "Container",
+    "direction": "col",
+    "orders": ["menu", "body"],
+    "children": {
+        "menu":{
+            "id": "menu",
+            "type": "Container",
+            "direction": "row",
+            "orders":[],
+            "children":{}
+        },
+        "body":{
+            "id": "body",
+            "type": "Container",
+            "direction": "row",
+            "orders":["panel", "main"],
+            "children":{
+                "panel":{
+                    "id": "panel",
+                    "type": "Container",
+                    "direction": "col",
+                    "orders":["description"],
+                    "children":{
+                        "description" : {
+                            "id": "description",
+                            "type": "Text",
+                            "children" : "AAA"
+                        }
+                    }
+                },
+                "main":{
+                    "id": "main",
+                    "type": "Container",
+                    "direction": "col",
+                    "orders":["description"],
+                    "children":{
+                        "description" : {
+                            "id": "description",
+                            "type": "Text",
+                            "children" : "BBB"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

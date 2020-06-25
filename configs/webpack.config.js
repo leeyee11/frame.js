@@ -5,7 +5,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 
@@ -15,7 +15,8 @@ module.exports = {
   mode: 'production',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    publicPath: './dist/'
   },
   module: {
     rules: [
@@ -57,6 +58,9 @@ module.exports = {
     new webpack.ProgressPlugin(),
     new ManifestPlugin(),
     new HtmlWebpackPlugin({ template: './public/index.html' }),
+    new CopyWebpackPlugin([{
+      from: './public/favicon.ico', to: './dist/favicon.ico'
+    }]),
     new InterpolateHtmlPlugin(HtmlWebpackPlugin, {
       PUBLIC_URL: './dist',
     }),
